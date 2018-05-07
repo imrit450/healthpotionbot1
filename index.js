@@ -48,7 +48,7 @@ bot.on("message", function(message){
         case "smk":
         message.channel.sendMessage("Ti cok flmm, ki pu souC ladan lmao");
         break;
-        case "8ball":
+        case "ask":
              if (args[1]) message.channel.sendMessage(fortunes[Math.floor(Math.random() * fortunes.length)]);
         else message.channel.sendMessage("Can't Read that...");
         break;
@@ -85,6 +85,7 @@ bot.on("message", function(message){
         .addField("smk", "Check if you're worth")
         .addField("info", "Information about me")
         .addField("8ball", "Ask a question and it will return an anwser")
+        .addField("sbpump", "Bouss Liki ar pump")
         .setColor(0x00e6dc)
         message.channel.sendEmbed(help)
         break;
@@ -96,10 +97,15 @@ bot.on("message", function(message){
             var server = servers[message.guild.id];
             if (message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
         break;
-        
+
         case "sbpump":
+        if (!message.member.voiceChannel){
+            message.channel.sendMessage("Please Join a voice Channel");
+            return;
+        }
         var sbpump = new Discord.RichEmbed()
             .setTitle("Playing IsmailPump.mp3");
+            .setColor(0x00e6dc)
             message.channel.sendEmbed(sbpump);
        
         const streamOptions = { seek: 0, volume: 1 };
