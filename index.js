@@ -1,14 +1,15 @@
 const Discord = require("discord.js");
-const YTDL = require("ytdl-core")
+const YTDL = require("ytdl-core");
 
 
 const TOKEN = "NDM4Mjk5MjQ1MTkyNDEzMjA1.DdCqPg.0Ps0EXAXrme0FkQwCHoJ4q96Ra4";
 const PREFIX = "-hp ";
 var bot = new Discord.Client();
+var servers = {};
 
-function play(connection, message){
+function play(connection, message) {
     var server = servers[message.guild.id];
-    server.dispatcher = connection.playstream(YTDL(server.queue[0], {filter: "audioonly"}));
+    server.dispatcher = connection.playStream(YTDL(server.queue[0], {filter: "audioonly"}));
     server.queue.shift();
     server.dispatcher.on("end", function(){
         if (server.queue[0]) play(connection, message);
@@ -68,8 +69,8 @@ bot.on("message", function(message){
             }
             
             if(!servers[message.guild.id]) servers[message.guild.id] = {
-                queue: []
-            };
+               queue: []
+           };
             
             var server = servers[message.guild.id];
             server.queue.push(args[1]);
@@ -78,21 +79,24 @@ bot.on("message", function(message){
                 play(connection, message);
         });
         break;
+
         case "help":
         var help = new Discord.RichEmbed()
         .setTitle("Commands for HP Bot")
         .addField("ping" , "Will return Pong if bot is online")
         .addField("smk", "Check if you're worth")
         .addField("info", "Information about me")
-        .addField("8ball", "Ask a question and it will return an anwser")
+        .addField("ask", "Ask a question and it will return an answer")
         .addField("sbpump", "Bouss Liki ar pump")
         .setColor(0x00e6dc)
-        message.channel.sendEmbed(help)
+        message.channel.sendEmbed(help);
         break;
+
         case "skip":
             var server = servers[message.guild.id];
             if (server.dispatcher) server.dispatcher.end();
             break;
+
         case "stop":
             var server = servers[message.guild.id];
             if (message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
@@ -104,7 +108,7 @@ bot.on("message", function(message){
             return;
         }
         var sbpump = new Discord.RichEmbed()
-            .setTitle("Playing IsmailPump.mp3");
+            .setTitle("Playing IsmailPump.mp3")
             .setColor(0x00e6dc)
             message.channel.sendEmbed(sbpump);
        
@@ -120,7 +124,8 @@ bot.on("message", function(message){
                     });
                 }).catch(err => console.log(err));
 
-                break;
+        break;
+
         default: 
             message.channel.sendMessage("Invalid Command: Do '-hp help' for All commands.");
 
