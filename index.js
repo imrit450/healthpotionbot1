@@ -96,11 +96,8 @@ bot.on("message", function(message){
             var server = servers[message.guild.id];
             if (message.guild.voiceConnection) message.guild.voiceConnection.disconnect();
         break;
+        
         case "sbpump":
-        if (!message.member.voiceChannel){
-            message.channel.sendMessage("Please Join a voice Channel");
-            return;
-        }
         var sbpump = new Discord.RichEmbed()
             .setTitle("Playing IsmailPump.mp3");
             message.channel.sendEmbed(sbpump);
