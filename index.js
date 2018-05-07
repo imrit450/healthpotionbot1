@@ -23,6 +23,8 @@ var fortunes = [
     "Maybe",
     "How tf should i know?",
     "ummm what?",
+    "Idk m8, better ask Ismail",
+    "You serious?"
 ];
 
 bot.on("ready", function(){
@@ -50,8 +52,9 @@ bot.on("message", function(message){
         message.channel.sendMessage("Ti cok flmm, ki pu souC ladan lmao");
         break;
         case "ask":
-             if (args[1]) message.channel.sendMessage(fortunes[Math.floor(Math.random() * fortunes.length)]);
-        else message.channel.sendMessage("Can't Read that...");
+        
+             if (args[1]) message.channel.sendMessage(fortunes[Math.floor(Math.random(3342432341) * fortunes.length)]);
+        else message.channel.sendMessage("Ask me a question...");
         break;
         case "embed":
         var embed = new Discord.RichEmbed()
