@@ -36,6 +36,9 @@ let smkreplies = [
 
 bot.on("ready", async() => {
     console.log('Ready');
+    bot.user.setStatus('Online');
+    bot.user.setGame('Ismail ( ͡° ͜ʖ ͡°)');
+    bot.user.setColor(0x00e6dc);
 });
 bot.on("message", function(message){
     if (message.author.equals(bot.user))return;
