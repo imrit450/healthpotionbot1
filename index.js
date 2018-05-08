@@ -1,9 +1,10 @@
 const Discord = require("discord.js");
 const YTDL = require("ytdl-core");
+const botsettings = require("./botsettings.json");
 
 
-const TOKEN = "NDM4Mjk5MjQ1MTkyNDEzMjA1.DdCqPg.0Ps0EXAXrme0FkQwCHoJ4q96Ra4";
-const PREFIX = "-hp ";
+const TOKEN = botsettings.TOKEN;
+const PREFIX = botsettings.PREFIX;
 var bot = new Discord.Client();
 var servers = {};
 
@@ -15,20 +16,26 @@ function play(connection, message) {
         if (server.queue[0]) play(connection, message);
         else connection.disconnect();
     });
-}
+};
 
-var fortunes = [
+let answers = [
     "Yes",
     "No",
     "Maybe",
-    "How tf should i know?",
+    "How should i know?",
     "ummm what?",
     "Idk m8, better ask Ismail",
     "You serious?"
 ];
+let smkreplies = [
+    "Ti cok flmm, ki pu souC ladan lmao",
+    "I'll think about it",
+    "Ehhh, no ty get a life darling",
+    "New hentais just came out, go watch them virgin"  
+];
 
-bot.on("ready", function(){
-    console.log("Ready");
+bot.on("ready", async() => {
+    console.log('Ready');
 });
 bot.on("message", function(message){
     if (message.author.equals(bot.user))return;
@@ -42,25 +49,31 @@ bot.on("message", function(message){
         case "ping":
         message.channel.sendMessage("Pong!");
         break;
+        
         case "hello":
         message.channel.sendMessage("Sup," + message.author.toString());
         break;
+
         case "info":
         message.channel.sendMessage("I'm the Android of the Supreme Leader @thresh");
         break;
+
         case "smk":
-        message.channel.sendMessage("Ti cok flmm, ki pu souC ladan lmao");
+            if (args[0]) message.channel.sendMessage(smkreplies[Math.floor(Math.random() * smkreplies.length)]);
         break;
+
         case "ask":
         
-             if (args[1]) message.channel.sendMessage(fortunes[Math.floor(Math.random(3342432341) * fortunes.length)]);
+             if (args[1]) message.channel.sendMessage(answers[Math.floor(Math.random(3342432341) * answers.length)]);
         else message.channel.sendMessage("Ask me a question...");
         break;
+
         case "embed":
         var embed = new Discord.RichEmbed()
             .setDescription("Testing Rich Embed");
         message.channel.sendEmbed(embed);
         break;
+
         case "play":
             if (!args[1]){
                 message.channel.sendMessage("Please Provide a link");
@@ -129,10 +142,40 @@ bot.on("message", function(message){
 
         break;
 
+        /*case "mute":
+            if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.sendMessage("You do not have permission to mute" + toMute.username);
+            if(message.channel.permissionsFor(message.member).hasPermission("MANAGE_MESSAGES"));
+            let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
+            if(!toMute) return message.channel.sendMessage("You didn't specify a User Mention or ID!");
+
+            let role = message.guild.roles.find(r => r.name === "User Muted");
+            if(!role){
+                try{
+                    role = message.guild.createRole({
+                        name: "User Muted",
+                        color: "#00FFCD",
+                        permissions: []
+                    });
+                    message.guild.channels.forEach(function(channel, id){
+                       channel.overwritePermissions(role, {
+                            SEND_MESSAGE: false,
+                        });
+                    });
+                } catch(e) {
+                    console.log(e.stack);
+                }
+            }
+            
+            if(toMute.roles.has(role.id)) return message.channel.sendMessage("This user is already Muted!");
+            toMute.addRole(role);
+            message.channel.sendMessage(toMute.user.username + " has been muted!");
+            
+        break;*/
+
         default: 
             message.channel.sendMessage("Invalid Command: Do '-hp help' for All commands.");
 
     }
 });
 
-bot.login(TOKEN);
+bot.login(botsettings.TOKEN);
