@@ -37,7 +37,7 @@ let smkreplies = [
 bot.on("ready", async() => {
     console.log('Ready');
     bot.user.setStatus('Online');
-    bot.user.setGame('Ismail ( ͡° ͜ʖ ͡°)');
+    bot.user.setGame('with Ismail ( ͡° ͜ʖ ͡°)');
     
 });
 bot.on("message", function(message){
