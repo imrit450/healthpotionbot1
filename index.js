@@ -18,6 +18,7 @@ function play(connection, message) {
     });
 };
 
+
 let answers = [
     "Yes",
     "No",
@@ -62,13 +63,17 @@ bot.on("message", function(message){
         break;
 
         case "smk":
-            if (args[0]) message.channel.sendMessage(smkreplies[Math.floor(Math.random() * smkreplies.length)]);
+            if (args[0]) message.channel.sendMessage(smkreplies[Math.floor(Math.random(3342432341) * smkreplies.length)]);
         break;
 
         case "ask":
         
-             if (args[1]) message.channel.sendMessage(answers[Math.floor(Math.random(3342432341) * answers.length)]);
-        else message.channel.sendMessage("Ask me a question...");
+        if (message.content.endsWith("??")) message.channel.sendMessage("Ofc Darling") ;
+        else
+            if (message.content.endsWith(".?")) message.channel.sendMessage("Yes") ;
+                else
+                     if (args[1]) message.channel.sendMessage(answers[Math.floor(Math.random(3342432341) * answers.length)]);
+                        else message.channel.sendMessage("Ask me a question...");
         break;
 
         case "embed":
