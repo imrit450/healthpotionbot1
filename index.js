@@ -37,29 +37,29 @@ let smkreplies = [
 
 bot.on("ready", async() => {
     console.log('Ready');
+
+});
+bot.on("message", async message => {
+    if (message.author.equals(bot.user))return;
+    if (!message.content.startsWith(PREFIX)) return;
     bot.user.setStatus('Online');
     bot.user.setGame('with Ismail ( ͡° ͜ʖ ͡°)');
-    
-});
-bot.on("message", function(message){
-    if (message.author.equals(bot.user))return;
-
-    if (!message.content.startsWith(PREFIX)) return;
-
 
     var args = message.content.substring(PREFIX.length).split(" ");
 
     switch (args[0]){
         case "ping":
-        message.channel.sendMessage("Pong!");
+        {const m = await message.channel.send("Ping?");
+            m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(bot.ping)}ms`);
+        }
         break;
         
         case "hello":
-        message.channel.sendMessage("Sup," + message.author.toString());
+        message.channel.sendMessage("Sup, " + message.author.toString());
         break;
 
         case "info":
-        message.channel.sendMessage("I'm the Android of the Supreme Leader @thresh");
+        message.channel.sendMessage("I'm the Android of the Supreme Leader @Thresh#5870 ");
         break;
 
         case "smk":
@@ -68,9 +68,9 @@ bot.on("message", function(message){
 
         case "ask":
         
-       // if (message.content.endsWith("??")) message.channel.sendMessage("Ofc Darling") ;
-        //else
-            if (message.content.endsWith(".?")) message.channel.sendMessage("Yes") ;
+        if ((message.author.id === '164643701342076928') && (message.content.endsWith("??"))) {(message.channel.sendMessage ("Ofc Darling"));}
+        else
+            if ((message.content.endsWith(".?")) && (message.author.id === '164643701342076928')) {message.channel.sendMessage("Yes");}
                 else
                      if (args[1]) message.channel.sendMessage(answers[Math.floor(Math.random(3342432341) * answers.length)]);
                         else message.channel.sendMessage("Ask me a question...");
