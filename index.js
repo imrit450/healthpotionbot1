@@ -68,8 +68,8 @@ bot.on("message", function(message){
 
         case "ask":
         
-        if (message.content.endsWith("??")) message.channel.sendMessage("Ofc Darling") ;
-        else
+       // if (message.content.endsWith("??")) message.channel.sendMessage("Ofc Darling") ;
+        //else
             if (message.content.endsWith(".?")) message.channel.sendMessage("Yes") ;
                 else
                      if (args[1]) message.channel.sendMessage(answers[Math.floor(Math.random(3342432341) * answers.length)]);
