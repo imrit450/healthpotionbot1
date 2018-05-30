@@ -31,7 +31,7 @@ bot.on("ready", async() => {
 bot.on("message", async message => {
    
     bot.user.setStatus('Online');
-    bot.user.setGame('with Ismail ( ͡° ͜ʖ ͡°)');
+    bot.user.setActivity('with Ismail ( ͡° ͜ʖ ͡°)');
     let messageArray = message.content.split(" ");
     let command = messageArray[0];
     let args = messageArray.slice(1);
