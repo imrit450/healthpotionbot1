@@ -6,7 +6,7 @@ module.exports.run = async (bot,message,args) => {
         return;
     }
     var sbpump = new Discord.RichEmbed()
-        .setTitle("Playing IsmailPump.mp3")
+        .setTitle("Playing Wendy toem retard.mp3")
         .setColor(0x00e6dc)
         message.channel.sendEmbed(sbpump);
    
