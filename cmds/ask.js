@@ -5,11 +5,12 @@ module.exports.run = async (bot,message,args) => {
         "Yes",
         "No",
         "Maybe 😏",
-        "How should i know? 🤔",
-        "ummm what? 😐",
+        "ehhhh Yes..maybe? 🤔",
+        "ehhhh No..maybe? 🤔",
+        "ummm what? why? 😐",
         "Idk m8, better ask Ismail 🙄",
         "Ofc Darling 😘",
-        "You serious? 🤨"
+        
     ];
     
     if ((message.author.id === '164643701342076928') && (message.content.endsWith("??"))) {(message.channel.sendMessage ("Ofc Darling 😘 "));}
