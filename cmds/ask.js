@@ -15,7 +15,7 @@ module.exports.run = async (bot,message,args) => {
     
     if ((message.author.id === '164643701342076928') && (message.content.endsWith("??"))) {(message.channel.sendMessage ("Ofc Darling 😘 "));}
         else
-            if ((message.content.endsWith(".?")) && (message.author.id === '164643701342076928')) {message.channel.sendMessage("Yes");}
+            if ((message.content.endsWith(".?")) && (message.author.id === '164643701342076928')) {message.channel.sendMessage("Yes <:pikaglance:460475587904012327>");}
                 else
                      if (args[1]) message.channel.sendMessage(answers[Math.floor(Math.random(3342432341) * answers.length)]);
                         else message.channel.sendMessage("Ask me a question...");
