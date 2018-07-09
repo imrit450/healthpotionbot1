@@ -8,7 +8,7 @@ module.exports.run = async (bot,message,args) => {
         "ehhhh Yes..maybe? <:whytho:378183787600805889>",
         "ehhhh No..maybe? <:huh:460482102719283210>",
         "ummm what? why? <:wait:463468116014530571>",
-        "Idk m8, better ask Ismail <:pepehigh:463046642140971009>",
+        "Idk m8 <:pepehigh:463046642140971009>",
         "Ofc Darling <:pepolove:414467473174298624>",
         
     ];
