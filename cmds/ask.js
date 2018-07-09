@@ -9,11 +9,11 @@ module.exports.run = async (bot,message,args) => {
         "ehhhh No..maybe? <:huh:460482102719283210>",
         "ummm what? why? <:wait:463468116014530571>",
         "Idk m8, better ask Ismail <:pepehigh:463046642140971009>",
-        "Ofc Darling <:GWcmeisterPeepoLove:403295311189245952>",
+        "Ofc Darling <:pepolove:414467473174298624>",
         
     ];
     
-    if ((message.author.id === '164643701342076928') && (message.content.endsWith("??"))) {(message.channel.sendMessage ("Ofc Darling <:GWcmeisterPeepoLove:403295311189245952>"));}
+    if ((message.author.id === '164643701342076928') && (message.content.endsWith("??"))) {(message.channel.sendMessage ("Ofc Darling <:pepolove:414467473174298624>"));}
         else
             if ((message.content.endsWith(".?")) && (message.author.id === '164643701342076928')) {message.channel.sendMessage("Yes");}
                 else
