@@ -4,9 +4,13 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "better-cleverbot-io": "^1.0.2",
+    "cleverbot.io": "^1.0.4",
     "discord.js": "^11.3.2",
     "ffmpeg-binaries": "^3.2.2-3",
+    "mitsuku-api": "^0.2.1",
     "nodemon": "^1.17.4",
+    "npm": "^6.1.0",
     "opusscript": "0.0.6",
     "python": "0.0.4",
     "snekfetch": "^4.0.0",
