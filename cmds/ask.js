@@ -2,11 +2,11 @@ const Discord = module.require("discord.js");
 
 module.exports.run = async (bot,message,args) => {
     let answers = [
-        "Yes",
+        "Yes <:pikaglance:460475587904012327>",
         "No",
-        "Maybe 😏",
+        "Maybe <:pikaglance:460475587904012327>",
         "ehhhh Yes..maybe? 🤔",
-        "ehhhh No..maybe? 🤔",
+        "ehhhh No..maybe? <:huh:460482102719283210>",
         "ummm what? why? 😐",
         "Idk m8, better ask Ismail 🙄",
         "Ofc Darling 😘",
