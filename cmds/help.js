@@ -9,6 +9,10 @@ module.exports.run = async (bot,message,args) => {
         .addField("Vote", "Starts a vote with Yes or No")
         .addField("ask", "Ask a question and it will return an answer")
         .addField("sbpump", "Bouss Liki ar pump")
+        .addField("sbwendy1", "to lavoix in tass dan to fess man ft wakeel laugh")
+        .addField("sbwendy2", "varan toem retard la")
+        .addField("sbprime", "ki p fair sa pln la?")
+        .addField("sbprimefull", "ki p fair sa pln la full version")
         .setColor(0x00e6dc)
         message.channel.sendEmbed(help);
 }
