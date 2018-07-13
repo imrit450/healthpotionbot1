@@ -1,9 +1,8 @@
 const Discord = require("discord.js");
 const YTDL = require("ytdl-core");
-const botsettings = require("./botsettings.json");
+const botsettings = require("./config.json");
 const fs = require("fs");
 
-const TOKEN = botsettings.TOKEN;
 const PREFIX = botsettings.PREFIX;
 var bot = new Discord.Client();
 bot.commands = new Discord.Collection();
@@ -45,4 +44,4 @@ bot.on("message", async message => {
     if(!cmd) message.channel.sendMessage("Invalid Command: Do '-hp help' for All commands.");   
 });
 
-bot.login(botsettings.TOKEN);
+bot.login(process.env.BOT_TOKEN);
